@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --lilac-main: #7069f8;
+    --lilac-light: #9f9fed;
+    --lilac-lighter: #d4c1ec;
+    --lilac-lightest: 
+
+    --fs-hero: clamp(2.25rem, 6vw, 3rem);        /* Huge - landing title */
+    --fs-title: clamp(1.75rem, 4.5vw, 2.25rem);  /* Page/section titles */
+    --fs-subtitle: clamp(1.25rem, 3vw, 1.5rem);  /* Chat room name / labels */
+    --fs-body: clamp(1rem, 2vw, 1.125rem);       /* Main chat message text */
+    --fs-small: clamp(0.875rem, 1.5vw, 1rem);    /* Timestamps, input labels */
+    --fs-tiny: clamp(0.75rem, 1vw, 0.875rem);    /* System messages, status dots */
+}
+
+
+body {
+    min-height: 100vh;
+    background: url("/bg4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: "Lexend Exa", sans-serif;
+}
+
+.title {
+    font-family: "Pixelify sans", sans-serif;
+}
+
+
