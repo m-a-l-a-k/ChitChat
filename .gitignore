@@ -1,0 +1,29 @@
+# Dependency directories
+node_modules/
+
+# Environment variables (keep secrets out of version control)
+.env
+.env.local
+
+# Build output (React and backend)
+build/
+dist/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Coverage reports (if using test coverage tools like Jest)
+coverage/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Coverage reports
+coverage/
