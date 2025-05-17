@@ -46,7 +46,7 @@ export default function LoginSignup() {
       className={`transition-all duration-300 overflow-hidden rounded-lg shadow-lg bg-white bg-opacity-5 backdrop-blur-lg p-6
       w-full
         ${isLogin
-          ? "h-[425px] w-[390px]"
+          ? "h-[425px] w-[420px]"
           : "h-[565px] sm:w-[545px] lg:w-[555px]"
         }`}
       >

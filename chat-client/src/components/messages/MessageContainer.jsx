@@ -1,15 +1,22 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Messages from './Messages'
 import MessageInput from './MessageInput'
 import { TbMessages } from "react-icons/tb";
-import useconversation from '../../store/useConversation';
+import useConversation from '../../store/useConversation';
 
 
 export default function MessageContainer() {
-    const {selectedConveration, setSelectedConversation} = useconversation()
+    const {selectedConversation, setSelectedConversation} = useConversation();
+
+    useEffect(() => {
+
+        // cleanup function for unmounting
+        return () => setSelectedConversation(null)
+    }, [setSelectedConversation]);
+
   return (
     <div className='md:min-w-[450px] flex flex-col'>
-        {!selectedConveration ? (
+        {!selectedConversation ? (
             <NoChatSelected />
         ) : (
         <>
@@ -18,7 +25,7 @@ export default function MessageContainer() {
 
             <span
             className='text-white text-2xl tracking-widest font-semibold title'
-            >Kim Possible</span>
+            >{selectedConversation.fullName}</span>
 
         </div>
 
