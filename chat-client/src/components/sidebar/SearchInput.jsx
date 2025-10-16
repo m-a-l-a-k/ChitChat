@@ -39,7 +39,7 @@ export default function SearchInput() {
 
         <button 
         type='submit'
-        className='btn btn-circle bg-violet-500 text-white bg-opacity-60 hover:bg-opacity-75 group hover:bg-pink-500
+        className='btn btn-circle border-none bg-violet-500 text-white bg-opacity-60 hover:bg-opacity-75 group hover:bg-pink-500
         '>
             <FaSearch 
             className='transition-transform duration-300 ease-in-out group-hover:scale-125'

@@ -28,8 +28,11 @@ export default function DOBPicker({selectedDate, onDateChange}) {
           yearDropdownItemNumber={yearRange}
           minDate={new Date(1944, 0, 1)}
           maxDate={new Date(currentYear, 11, 31)}
+          portalId="datepicker-portal"
+          popperClassName="z-[9999]"
+          popperPlacement="bottom-start"
           className="input input-bordered w-full pr-14 bg-purple-200 border-purple-400
-          placeholder-purple-500 placeholder:tracking-tight text-purple-950 h-10
+          placeholder-purple-400 placeholder:tracking-tight text-purple-950 h-10
           border-opacity-70"
         />
         {zodiac && (

@@ -7,14 +7,15 @@ import messageRoutes from "./routes/message.routes.js";
 import userRoutes from "./routes/user.routes.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
+import { app, server } from "./socket/socket.js";
 
 dotenv.config();
 
-const app = express();
 const PORT = process.env.PORT || 5000
 
 app.use(express.json());
 app.use(cookieParser());
+ 
 app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true 
@@ -25,12 +26,12 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 app.use("/api/users", userRoutes);
  
-app.get("/", (req, res) => {
-    // root route http://localhost:5000/
-    res.send("Hello, world!")
-});
+// app.get("/", (req, res) => {
+//     // root route http://localhost:5000/
+//     res.send("Hello, world!")
+// });
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     connectToMongoDB();
 });

@@ -3,10 +3,15 @@ import { useAuthContext } from '../../context/AuthContext';
 import useConversation from '../../store/useConversation';
 import getTime from '../../utils/getTime';
 
-export default function Message({message}) {
+export default function Message({ message }) {
   const {authUser} = useAuthContext()
   const {selectedConversation} = useConversation()
-  const fromMe = message.senderId === authUser._id
+  
+  const myId = authUser?._id?.toString()
+  const senderId =
+    (message?.senderId?._id ?? message?.senderId)?.toString()
+
+  const fromMe = senderId === myId
   const formattedTime = getTime(message.createdAt);
 
   const chatClassName = fromMe ? 'chat-end' : 'chat-start';

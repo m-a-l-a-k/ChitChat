@@ -38,21 +38,23 @@ export default function LoginSignup() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    if (loginLoading) return;
     await login({username, password})
   }
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col min-h-[100dvh] items-center justify-center">
       <div
       className={`transition-all duration-300 overflow-hidden rounded-lg shadow-lg bg-white bg-opacity-5 backdrop-blur-lg p-6
       w-full
         ${isLogin
-          ? "h-[425px] w-[420px]"
-          : "h-[565px] sm:w-[545px] lg:w-[555px]"
+          ? "h-[425px] w-[85vw] sm:w-[460px] lg:w-[500px]"
+          : "h-[565px] w-[85vw] sm:w-[545px] lg:w-[555px]"
         }`}
       >
 
         <div className="flex items-center justify-center gap-2 mb-6">
-            <div className="relative h-10 w-[100px] overflow-hidden text-right">
+            <span className="block text-3xl font-semibold text-purple-300 title">ChitChat</span>
+            <div className="relative h-10 w-[100px] overflow-hidden text-left">
               <h1
                 className={`absolute inset-0 transition-all duration-500 ease-in-out title text-3xl font-semibold text-white ${
                   isLogin ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
@@ -68,7 +70,6 @@ export default function LoginSignup() {
                 Signup
               </h1>
             </div>
-            <span className="block text-3xl font-semibold text-purple-300 title">ChitChat</span>
         </div>
 
         {/* LOGIN FORM */}
@@ -88,7 +89,7 @@ export default function LoginSignup() {
               type='text' 
               placeholder='Enter username' 
               className='w-full input input-bordered bg-purple-200 border-purple-400
-              placeholder-purple-500 placeholder:tracking-tight text-purple-950 h-10
+              placeholder-purple-400 placeholder:tracking-tight text-purple-950 h-10
               border-opacity-70' 
               value={username}
               onChange= {(e) => setUsername(e.target.value)}
@@ -105,7 +106,7 @@ export default function LoginSignup() {
               type='password'
               placeholder='Enter password'
               className='w-full input input-bordered bg-purple-200 border-purple-400
-              placeholder-purple-500 placeholder:tracking-tight text-purple-950 h-10
+              placeholder-purple-400 placeholder:tracking-tight text-purple-950 h-10
               border-opacity-70'
               value={password}
               onChange= {(e) => setPassword(e.target.value)}
@@ -114,7 +115,7 @@ export default function LoginSignup() {
             <div className="w-full text-right">
               <a
                 href="#"
-                className="text-fuchsia-800 hover:underline text-sm tracking-tighter mr-2 font-semibold opacity-90"
+                className="text-purple-950 transition-colors duration-400 ease-in-out hover:text-pink-400 drop-shadow-md hover:underline text-sm tracking-tighter mr-2 font-semibold opacity-90"
               >
                 Forgot your password?
               </a>
@@ -165,7 +166,7 @@ export default function LoginSignup() {
                 type='text' 
                 placeholder='Jane Doe' 
                 className='w-full input input-bordered bg-purple-200 border-purple-400
-                placeholder-purple-500 placeholder:tracking-tight text-purple-950 h-10
+                placeholder-purple-400 placeholder:tracking-tight text-purple-950 h-10
                 border-opacity-70'
                 value={inputs.fullName}
                 onChange={(e) => setInputs({...inputs, fullName: e.target.value})}
@@ -181,7 +182,7 @@ export default function LoginSignup() {
                 type='text' 
                 placeholder='jane.doe' 
                 className='w-full input input-bordered bg-purple-200 border-purple-400
-                placeholder-purple-500 text-purple-950 h-10 border-opacity-70'
+                placeholder-purple-400 text-purple-950 h-10 border-opacity-70'
                 value={inputs.username}
                 onChange={(e) => setInputs({...inputs, username: e.target.value})}
               />
@@ -198,7 +199,7 @@ export default function LoginSignup() {
                 type='text' 
                 placeholder='your.email@example.com' 
                 className='w-full input input-bordered bg-purple-200 border-purple-400
-                placeholder-purple-500 placeholder:tracking-tight text-purple-950 h-10
+                placeholder-purple-400 placeholder:tracking-tight text-purple-950 h-10
                 border-opacity-70'
                 value={inputs.email}
                 onChange={(e) => setInputs({...inputs, email: e.target.value})}
@@ -241,7 +242,7 @@ export default function LoginSignup() {
                 type='password'
                 placeholder='Enter password'
                 className='w-full input input-bordered bg-purple-200 border-purple-400
-                placeholder-purple-500 text-purple-950 h-10 border-opacity-70'
+                placeholder-purple-400 text-purple-950 h-10 border-opacity-70'
                 value={inputs.password}
                 onChange={(e) => setInputs({...inputs, password: e.target.value})}
               />
@@ -256,7 +257,7 @@ export default function LoginSignup() {
                 type='password'
                 placeholder='Re-enter password'
                 className='w-full input input-bordered bg-purple-200 border-purple-400
-                placeholder-purple-500 text-purple-950 h-10 border-opacity-70'
+                placeholder-purple-400 text-purple-950 h-10 border-opacity-70'
                 value={inputs.confirmPassword}
                 onChange={(e) => setInputs({...inputs, confirmPassword: e.target.value})}
               />
@@ -267,7 +268,7 @@ export default function LoginSignup() {
             <label className="cursor-pointer label p-2">
               <input
                 type="checkbox"
-                className="checkbox border-black border-opacity-30"
+                className="checkbox border-white border-opacity-30"
                 required
               />
               <span className="label-text text-white text-sm">

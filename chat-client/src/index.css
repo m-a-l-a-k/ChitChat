@@ -19,8 +19,9 @@
 
 
 body {
-    min-height: 100vh;
-    background: url("/bg4.jpg");
+    min-height: 100dvh;
+    overflow-y: hidden;
+    background: url("/bg5.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

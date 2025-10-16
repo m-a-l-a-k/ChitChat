@@ -3,6 +3,7 @@ import Messages from './Messages'
 import MessageInput from './MessageInput'
 import { TbMessages } from "react-icons/tb";
 import useConversation from '../../store/useConversation';
+import { useAuthContext } from '../../context/AuthContext';
 
 
 export default function MessageContainer() {
@@ -38,6 +39,12 @@ export default function MessageContainer() {
 }
 
 const NoChatSelected = () => {
+    const { authUser }= useAuthContext();
+    
+    const firstName = authUser?.fullName
+        ? authUser.fullName.split(" ")[0].charAt(0).toUpperCase() + authUser.fullName.split(" ")[0].slice(1).toLowerCase()
+        : "";
+
     return (
         <div className='flex items-center justify-center w-full h-full'>
             <div className='flex px-8 text-center sm:text-lg md:text-xl text-gray-200
@@ -45,7 +52,7 @@ const NoChatSelected = () => {
                 <p
                 className='title tracking-wider text-3xl text-purple-400'
                 >
-                    Welcome back, User.
+                    Welcome back, {firstName}.
                 </p>
                 <p
                 className='font-normal tracking-tighter text-white text-opacity-85'
